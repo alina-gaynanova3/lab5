@@ -1,12 +1,11 @@
 package itmo.organization.builders;
 
 import io.Scannable;
-import itmo.organization.Address;
 import itmo.organization.Location;
 import itmo.utils.WrongInputException;
 
 public class LocationConsoleBuilder {
-    private Location location;
+    private final Location location;
 
     public LocationConsoleBuilder() {
         location = new Location();

@@ -6,7 +6,7 @@ import itmo.organization.Location;
 
 
 public class AddressConsoleBuilder {
-    private Address address;
+    private final Address address;
 
     public AddressConsoleBuilder() {
         address = new Address();
@@ -42,11 +42,12 @@ public class AddressConsoleBuilder {
     }
 
 
-    private void buildTown(Scannable scannable){
+    private void buildTown(Scannable scannable) {
         Location location = null;
         try {
             location = new LocationConsoleBuilder().build(scannable);
-        } catch (Exception ignored){}
+        } catch (Exception ignored) {
+        }
         address.setTown(location);
     }
 }

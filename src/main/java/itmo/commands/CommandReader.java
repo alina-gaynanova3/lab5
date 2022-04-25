@@ -22,11 +22,11 @@ public class CommandReader {
     /**
      * Collection
      */
-    private MyHashSet<Organization> myHashSet;
-    private ExecuteFilesHistory executeFilesHistory;
+    private final MyHashSet<Organization> myHashSet;
+    private final ExecuteFilesHistory executeFilesHistory;
 
     /**
-     * @param myHashSet коллекция
+     * @param myHashSet           коллекция
      * @param executeFilesHistory история файлов
      */
     public CommandReader(MyHashSet<Organization> myHashSet, ExecuteFilesHistory executeFilesHistory) {
@@ -38,7 +38,7 @@ public class CommandReader {
      * @param inputString инпут стринг
      * @return list of words
      */
-    private List<String> split(String inputString){
+    private List<String> split(String inputString) {
         List<String> list = new ArrayList<>(Arrays.asList(inputString.split(" ")));
         list.removeIf(s -> s.equals(""));
         return list;
@@ -59,7 +59,7 @@ public class CommandReader {
 
         String command = words.get(0);
 
-        switch (command){
+        switch (command) {
             case "info":
                 return new Info(myHashSet);
             case "show":
@@ -78,13 +78,13 @@ public class CommandReader {
                 return new Min_by_name(myHashSet);
             case "history":
                 return new History();
-            case "remove_by_id":{
+            case "remove_by_id": {
                 if (words.size() < 2)
                     throw new WrongInputException("Нет параметра");
 
                 return new Remove_by_id(myHashSet, Integer.parseInt(words.get(1)));
             }
-            case "execute_script":{
+            case "execute_script": {
                 if (words.size() < 2)
                     throw new WrongInputException("Нет параметра");
 

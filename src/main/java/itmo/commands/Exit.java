@@ -10,7 +10,7 @@ public class Exit implements UserCommand {
      */
     @Override
     public void execute() {
-        System.out.println(new FormatCommandOutput(50, this).toString());
+        System.out.println(new FormatCommandOutput(50, this));
         System.exit(0);
     }
 }

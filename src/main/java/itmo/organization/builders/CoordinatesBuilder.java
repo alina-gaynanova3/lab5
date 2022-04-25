@@ -5,9 +5,9 @@ import itmo.organization.Coordinates;
 import itmo.utils.WrongInputException;
 
 public class CoordinatesBuilder {
-    private Coordinates coordinates;
+    private final Coordinates coordinates;
 
-    public CoordinatesBuilder(){
+    public CoordinatesBuilder() {
         coordinates = new Coordinates();
     }
 

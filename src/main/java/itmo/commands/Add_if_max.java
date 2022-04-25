@@ -15,10 +15,10 @@ public class Add_if_max implements UserCommand {
     private final Organization organization;
 
     /**
-     * @param myHashSet коллекция
+     * @param myHashSet    коллекция
      * @param organization организауия
      */
-    public Add_if_max(MyHashSet<Organization> myHashSet, Organization organization){
+    public Add_if_max(MyHashSet<Organization> myHashSet, Organization organization) {
         this.myHashSet = myHashSet;
         this.organization = organization;
     }
@@ -28,13 +28,13 @@ public class Add_if_max implements UserCommand {
      */
     @Override
     public void execute() {
-        System.out.println(new FormatCommandOutput(50, this).toString());
+        System.out.println(new FormatCommandOutput(50, this));
         Optional<Organization> max = myHashSet.stream().max(new OrganizationNameComparator());
-        if (!max.isPresent()){
+        if (!max.isPresent()) {
             myHashSet.add(organization);
             return;
         }
-        if (new OrganizationNameComparator().compare(organization, max.get()) > 0){
+        if (new OrganizationNameComparator().compare(organization, max.get()) > 0) {
             myHashSet.add(organization);
         }
     }

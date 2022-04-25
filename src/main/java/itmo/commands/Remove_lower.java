@@ -10,14 +10,14 @@ public class Remove_lower implements UserCommand {
     private final MyHashSet<Organization> myHashSet;
     private final Organization organization;
 
-    public Remove_lower(MyHashSet<Organization> myHashSet, Organization organization){
+    public Remove_lower(MyHashSet<Organization> myHashSet, Organization organization) {
         this.myHashSet = myHashSet;
         this.organization = organization;
     }
 
     @Override
     public void execute() {
-        System.out.println(new FormatCommandOutput(50, this).toString());
+        System.out.println(new FormatCommandOutput(50, this));
         myHashSet.removeIf(organization1 -> new OrganizationNameComparator().compare(organization1, organization) < 0);
     }
 }

@@ -9,7 +9,6 @@ import itmo.utils.FormatCommandOutput;
 import itmo.utils.WrongInputException;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 
 public class Execute_script implements UserCommand {
     private final MyHashSet<Organization> myHashSet;
@@ -24,7 +23,7 @@ public class Execute_script implements UserCommand {
 
     @Override
     public void execute() throws Exception {
-        System.out.println(new FormatCommandOutput(50, this).toString());
+        System.out.println(new FormatCommandOutput(50, this));
         File file = new File(filename);
         if (!file.canRead())
             throw new WrongInputException("не возможно прочитать файл");
@@ -38,7 +37,7 @@ public class Execute_script implements UserCommand {
             while (scannable.hasNextLine()) {
                 commandReader.getCommand(scannable, false).execute();
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Ошибка в файле " + filename + " на строчке: " + scannable.lines() + ": " + e.getMessage());
         }
         executeFilesHistory.remove(file);

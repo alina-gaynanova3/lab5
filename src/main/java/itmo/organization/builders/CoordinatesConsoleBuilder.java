@@ -2,22 +2,21 @@ package itmo.organization.builders;
 
 import io.Scannable;
 import itmo.organization.Coordinates;
-import itmo.utils.WrongInputException;
 
 public class CoordinatesConsoleBuilder {
-    private Coordinates coordinates;
+    private final Coordinates coordinates;
 
-    public CoordinatesConsoleBuilder(){
+    public CoordinatesConsoleBuilder() {
         coordinates = new Coordinates();
     }
 
-    public Coordinates build(Scannable scannable){
+    public Coordinates build(Scannable scannable) {
         buildX(scannable);
         buildY(scannable);
         return coordinates;
     }
 
-    private void buildX(Scannable scannable){
+    private void buildX(Scannable scannable) {
         System.out.println("Введите координату х: ");
         String x = scannable.readLine();
         try {
@@ -28,7 +27,7 @@ public class CoordinatesConsoleBuilder {
         }
     }
 
-    private void buildY(Scannable scannable){
+    private void buildY(Scannable scannable) {
         System.out.println("Введите координату y: ");
         String y = scannable.readLine();
         try {

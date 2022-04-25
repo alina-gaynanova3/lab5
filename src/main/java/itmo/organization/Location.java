@@ -10,7 +10,8 @@ public class Location {
     private Double y; //Поле не может быть null
     private Integer z; //Поле не может быть null
 
-    public Location() {}
+    public Location() {
+    }
 
     /**
      * @param x икс

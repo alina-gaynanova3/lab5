@@ -13,7 +13,7 @@ public class Add implements UserCommand {
     private final Organization organization;
 
     /**
-     * @param myHashSet коллекция
+     * @param myHashSet    коллекция
      * @param organization организация
      */
     public Add(MyHashSet<Organization> myHashSet, Organization organization) {
@@ -26,7 +26,7 @@ public class Add implements UserCommand {
      */
     @Override
     public void execute() {
-        System.out.println(new FormatCommandOutput(50, this).toString());
+        System.out.println(new FormatCommandOutput(50, this));
         myHashSet.add(organization);
     }
 }

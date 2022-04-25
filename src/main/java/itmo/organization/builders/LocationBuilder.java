@@ -5,7 +5,7 @@ import itmo.organization.Location;
 import itmo.utils.WrongInputException;
 
 public class LocationBuilder {
-    private Location location;
+    private final Location location;
 
     public LocationBuilder() {
         location = new Location();

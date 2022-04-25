@@ -16,7 +16,7 @@ public class Remove_all_by_postal_address implements UserCommand {
 
     @Override
     public void execute() {
-        System.out.println(new FormatCommandOutput(50, this).toString());
+        System.out.println(new FormatCommandOutput(50, this));
         myHashSet.removeIf(organization -> organization.getPostalAddress().equals(address));
     }
 }

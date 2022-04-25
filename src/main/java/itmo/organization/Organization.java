@@ -46,7 +46,8 @@ public class Organization implements Comparable<Organization> {
     /**
      * стандартный конструктор
      */
-    public Organization(){}
+    public Organization() {
+    }
 
     /**
      * @param id айди
@@ -133,7 +134,7 @@ public class Organization implements Comparable<Organization> {
     }
 
     /**
-     * @return  взять айди
+     * @return взять айди
      */
     public int getId() {
         return id;

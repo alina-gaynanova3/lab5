@@ -6,7 +6,7 @@ import java.util.HashSet;
 public class MyHashSet<E> extends HashSet<E> {
     private LocalDateTime creationDate;
 
-    public MyHashSet(){
+    public MyHashSet() {
         super();
         creationDate = LocalDateTime.now();
     }

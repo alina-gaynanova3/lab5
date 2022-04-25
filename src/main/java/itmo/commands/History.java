@@ -9,7 +9,7 @@ public class History implements UserCommand {
      */
     @Override
     public void execute() {
-        System.out.println(new FormatCommandOutput(50, this).toString());
+        System.out.println(new FormatCommandOutput(50, this));
         CommandHistory.getHistory().forEach(command -> System.out.println(command.getClass().getSimpleName()));
     }
 }

@@ -8,13 +8,14 @@ public class Remove_by_id implements UserCommand {
     private final MyHashSet<Organization> myHashSet;
     private final int id;
 
-    public Remove_by_id(MyHashSet<Organization> myHashSet, int id){
+    public Remove_by_id(MyHashSet<Organization> myHashSet, int id) {
         this.myHashSet = myHashSet;
         this.id = id;
     }
+
     @Override
     public void execute() {
-        System.out.println(new FormatCommandOutput(50, this).toString());
+        System.out.println(new FormatCommandOutput(50, this));
         myHashSet.removeIf(organization -> organization.getId() == id);
     }
 }

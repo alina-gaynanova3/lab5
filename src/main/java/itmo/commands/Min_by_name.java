@@ -17,7 +17,7 @@ public class Min_by_name implements UserCommand {
 
     @Override
     public void execute() {
-        System.out.println(new FormatCommandOutput(50, this).toString());
+        System.out.println(new FormatCommandOutput(50, this));
         Optional<Organization> min = myHashSet.stream().min(new OrganizationNameComparator());
         if (!min.isPresent()) {
             System.out.println("Ойой, ничего не павучивось 👉👈");

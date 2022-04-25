@@ -5,7 +5,7 @@ import itmo.utils.FormatCommandOutput;
 
 public class Info implements UserCommand {
 
-    private MyHashSet<?> myHashSet;
+    private final MyHashSet<?> myHashSet;
 
     public Info(MyHashSet<?> myHashSet) {
         this.myHashSet = myHashSet;

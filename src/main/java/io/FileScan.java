@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class FileScan implements Scannable{
+public class FileScan implements Scannable {
 
     private final Scanner scanner;
     private int lines;

@@ -5,7 +5,7 @@ import itmo.utils.FormatCommandOutput;
 
 public class Show implements UserCommand {
 
-    private MyHashSet<?> myHashSet;
+    private final MyHashSet<?> myHashSet;
 
     public Show(MyHashSet<?> myHashSet) {
         this.myHashSet = myHashSet;
@@ -14,7 +14,7 @@ public class Show implements UserCommand {
     @Override
     public void execute() {
         System.out.println(new FormatCommandOutput(50, this));
-        if (myHashSet.isEmpty()){
+        if (myHashSet.isEmpty()) {
             System.out.println("HashSet пуст!");
             return;
         }

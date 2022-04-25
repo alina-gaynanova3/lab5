@@ -5,16 +5,16 @@ import itmo.organization.Organization;
 import itmo.organization.comparators.OrganizationNameComparator;
 import itmo.utils.FormatCommandOutput;
 
-public class PrintDescending implements UserCommand{
+public class PrintDescending implements UserCommand {
     private final MyHashSet<Organization> myHashSet;
 
-    public PrintDescending(MyHashSet<Organization> myHashSet){
+    public PrintDescending(MyHashSet<Organization> myHashSet) {
         this.myHashSet = myHashSet;
     }
 
     @Override
     public void execute() {
-        System.out.println(new FormatCommandOutput(50, this).toString());
+        System.out.println(new FormatCommandOutput(50, this));
         myHashSet.stream().sorted(new OrganizationNameComparator()).forEach(System.out::println);
     }
 }

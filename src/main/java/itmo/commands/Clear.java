@@ -22,7 +22,7 @@ public class Clear implements UserCommand {
      */
     @Override
     public void execute() {
-        System.out.println(new FormatCommandOutput(50, this).toString());
+        System.out.println(new FormatCommandOutput(50, this));
         myHashSet.clear();
         System.out.println("Коллекция очищена!");
     }

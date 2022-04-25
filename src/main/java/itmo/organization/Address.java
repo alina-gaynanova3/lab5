@@ -10,12 +10,13 @@ public class Address {
     private String zipCode; //Длина строки не должна быть больше 14, Поле может быть null
     private Location town; //Поле может быть null
 
-    public Address(){}
+    public Address() {
+    }
 
     /**
-     * @param street улица
+     * @param street  улица
      * @param zipCode почтовый индекс
-     * @param town город
+     * @param town    город
      * @throws WrongInputException
      */
     public Address(String street, String zipCode, Location town) throws WrongInputException {

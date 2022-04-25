@@ -12,7 +12,7 @@ import java.util.Locale;
 import java.util.Random;
 
 public class OrganizationBuilder {
-    private Organization organization;
+    private final Organization organization;
 
     public OrganizationBuilder() {
         organization = new Organization();
@@ -37,9 +37,11 @@ public class OrganizationBuilder {
             id = random.nextInt();
         organization.setId(id);
     }
+
     private void buildCreationDate() throws WrongInputException {
         organization.setCreationDate(ZonedDateTime.now());
     }
+
     private void buildName(Scannable scannable) throws WrongInputException {
         String name = scannable.readLine();
         organization.setName(name);
@@ -59,14 +61,16 @@ public class OrganizationBuilder {
         String annualTurnover = scannable.readLine();
         organization.setAnnualTurnover(Integer.parseInt(annualTurnover));
     }
-    private void buildOrganizationType(Scannable scannable){
+
+    private void buildOrganizationType(Scannable scannable) {
         String organizationType = scannable.readLine();
-        if (organizationType.equals("")){
+        if (organizationType.equals("")) {
             organization.setType(null);
             return;
         }
         organization.setType(OrganizationType.valueOf(organizationType.trim().toUpperCase(Locale.ROOT)));
     }
+
     private void buildPostalAddress(Scannable scannable) throws WrongInputException {
         Address address = new AddressConsoleBuilder().build(scannable);
         organization.setPostalAddress(address);

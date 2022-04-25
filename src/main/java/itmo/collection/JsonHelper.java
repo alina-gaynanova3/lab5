@@ -7,9 +7,7 @@ import itmo.organization.Organization;
 import itmo.utils.WrongInputException;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -18,11 +16,13 @@ public class JsonHelper {
     private Organization[] organizations;
     private LocalDateTime creationTime;
 
-    public JsonHelper(){}
-    public JsonHelper(MyHashSet<Organization> myHashSet){
+    public JsonHelper() {
+    }
+
+    public JsonHelper(MyHashSet<Organization> myHashSet) {
         organizations = new Organization[myHashSet.size()];
         int index = 0;
-        for (Organization organization : myHashSet){
+        for (Organization organization : myHashSet) {
             organizations[index++] = organization;
         }
         this.creationTime = myHashSet.getCreationDate();
@@ -53,7 +53,7 @@ public class JsonHelper {
     }
 
     public static MyHashSet<Organization> toHashSet(String filename) throws Exception {
-        if (!Files.isReadable(Paths.get(filename))){
+        if (!Files.isReadable(Paths.get(filename))) {
             throw new WrongInputException("не возможно прочитать файл");
         }
         ObjectMapper objectMapper = new ObjectMapper();
@@ -64,7 +64,7 @@ public class JsonHelper {
         return jsonHelper.getHashSet();
     }
 
-    private MyHashSet<Organization> getHashSet(){
+    private MyHashSet<Organization> getHashSet() {
         MyHashSet<Organization> myHashSet = new MyHashSet<>();
         myHashSet.addAll(Arrays.asList(organizations));
         myHashSet.setCreationDate(this.creationTime);

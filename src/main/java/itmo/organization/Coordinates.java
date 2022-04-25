@@ -9,7 +9,8 @@ public class Coordinates {
     private Double x; //Максимальное значение поля: 316, Поле не может быть null
     private float y;
 
-    public Coordinates(){}
+    public Coordinates() {
+    }
 
     /**
      * @param x икс
@@ -36,7 +37,7 @@ public class Coordinates {
      * @param y игрик
      * @throws WrongInputException
      */
-    public void setY(float y) throws WrongInputException{
+    public void setY(float y) throws WrongInputException {
         this.y = y;
     }
 

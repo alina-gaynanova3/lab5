@@ -6,7 +6,7 @@ import itmo.organization.Location;
 import itmo.utils.WrongInputException;
 
 public class AddressBuilder {
-    private Address address;
+    private final Address address;
 
     public AddressBuilder() {
         address = new Address();
@@ -30,11 +30,12 @@ public class AddressBuilder {
     }
 
 
-    private void buildTown(Scannable scannable){
+    private void buildTown(Scannable scannable) {
         Location location = null;
         try {
             location = new LocationBuilder().build(scannable);
-        } catch (Exception ignored){}
+        } catch (Exception ignored) {
+        }
         address.setTown(location);
     }
 }
