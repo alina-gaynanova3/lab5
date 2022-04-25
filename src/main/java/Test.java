@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.time.ZonedDateTime;
 
 public class Test {
-    public static void main(String[] args) throws WrongInputException, IOException {
+    public static void main(String[] args) throws Exception {
         Organization organization = new Organization();
         organization.setId(1);
         organization.setName("ORG");

@@ -9,6 +9,7 @@ public class Coordinates {
     private Double x; //Максимальное значение поля: 316, Поле не может быть null
     private float y;
 
+    public Coordinates(){}
 
     /**
      * @param x икс
@@ -46,5 +47,10 @@ public class Coordinates {
 
     public float getY() {
         return y;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + x + "; " + y + ")";
     }
 }

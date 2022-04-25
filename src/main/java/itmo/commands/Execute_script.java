@@ -1,8 +1,46 @@
 package itmo.commands;
 
-public class Execute_script implements UserCommand {
-    @Override
-    public void execute() {
+import io.FileScan;
+import io.Scannable;
+import itmo.collection.MyHashSet;
+import itmo.organization.Organization;
+import itmo.utils.ExecuteFilesHistory;
+import itmo.utils.FormatCommandOutput;
+import itmo.utils.WrongInputException;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
+public class Execute_script implements UserCommand {
+    private final MyHashSet<Organization> myHashSet;
+    private final ExecuteFilesHistory executeFilesHistory;
+    private final String filename;
+
+    public Execute_script(MyHashSet<Organization> myHashSet, ExecuteFilesHistory executeFilesHistory, String filename) {
+        this.myHashSet = myHashSet;
+        this.executeFilesHistory = executeFilesHistory;
+        this.filename = filename;
+    }
+
+    @Override
+    public void execute() throws Exception {
+        System.out.println(new FormatCommandOutput(50, this).toString());
+        File file = new File(filename);
+        if (!file.canRead())
+            throw new WrongInputException("не возможно прочитать файл");
+
+        if (executeFilesHistory.contains(file))
+            throw new WrongInputException("рекурсия_))))))))))");
+        executeFilesHistory.add(file);
+        CommandReader commandReader = new CommandReader(myHashSet, executeFilesHistory);
+        Scannable scannable = new FileScan(filename);
+        try {
+            while (scannable.hasNextLine()) {
+                commandReader.getCommand(scannable, false).execute();
+            }
+        } catch (Exception e){
+            System.out.println("Ошибка в файле " + filename + " на строчке: " + scannable.lines() + ": " + e.getMessage());
+        }
+        executeFilesHistory.remove(file);
     }
 }

@@ -1,6 +1,8 @@
 package itmo.commands;
 
 
+import itmo.utils.FormatCommandOutput;
+
 public class Exit implements UserCommand {
 
     /**
@@ -8,6 +10,7 @@ public class Exit implements UserCommand {
      */
     @Override
     public void execute() {
+        System.out.println(new FormatCommandOutput(50, this).toString());
         System.exit(0);
     }
 }

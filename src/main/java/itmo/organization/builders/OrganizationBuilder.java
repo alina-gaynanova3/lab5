@@ -1,18 +1,20 @@
 package itmo.organization.builders;
 
 import io.Scannable;
-import itmo.organization.*;
+import itmo.organization.Address;
+import itmo.organization.Coordinates;
+import itmo.organization.Organization;
+import itmo.organization.OrganizationType;
 import itmo.utils.WrongInputException;
 
 import java.time.ZonedDateTime;
-import java.util.Arrays;
 import java.util.Locale;
 import java.util.Random;
 
-public class OrganizationConsoleBuilder {
+public class OrganizationBuilder {
     private Organization organization;
 
-    public OrganizationConsoleBuilder(){
+    public OrganizationBuilder() {
         organization = new Organization();
     }
 
@@ -38,57 +40,32 @@ public class OrganizationConsoleBuilder {
     private void buildCreationDate() throws WrongInputException {
         organization.setCreationDate(ZonedDateTime.now());
     }
-
-    private void buildName(Scannable scannable){
-        System.out.println("Введите имя: ");
+    private void buildName(Scannable scannable) throws WrongInputException {
         String name = scannable.readLine();
-        try{
-            organization.setName(name);
-        } catch (Exception e){
-            System.out.println("Что-то пошло не так: " + e.getMessage());
-            buildName(scannable);
-        }
+        organization.setName(name);
     }
 
-    private void buildFullName(Scannable scannable){
-        System.out.println("Введите Full имя: ");
+    private void buildFullName(Scannable scannable) throws WrongInputException {
         String fullname = scannable.readLine();
-        try{
-            organization.setFullName(fullname);
-        } catch (Exception e){
-            System.out.println("Что-то пошло не так: " + e.getMessage());
-            buildFullName(scannable);
-        }
+        organization.setFullName(fullname);
     }
 
     private void buildCoordinates(Scannable scannable) throws WrongInputException {
-        Coordinates coordinates = new CoordinatesConsoleBuilder().build(scannable);
+        Coordinates coordinates = new CoordinatesBuilder().build(scannable);
         organization.setCoordinates(coordinates);
     }
 
-    private void buildAnnualTurnover(Scannable scannable){
-        System.out.println("Введите annual turnover: ");
+    private void buildAnnualTurnover(Scannable scannable) throws WrongInputException {
         String annualTurnover = scannable.readLine();
-        try{
-            organization.setAnnualTurnover(Integer.parseInt(annualTurnover));
-        } catch (Exception e){
-            System.out.println("Что-то пошло не так: " + e.getMessage());
-            buildAnnualTurnover(scannable);
-        };
+        organization.setAnnualTurnover(Integer.parseInt(annualTurnover));
     }
     private void buildOrganizationType(Scannable scannable){
-        System.out.println("Введите OrganizationType: " + Arrays.toString(OrganizationType.values()));
         String organizationType = scannable.readLine();
         if (organizationType.equals("")){
             organization.setType(null);
             return;
         }
-        try{
-            organization.setType(OrganizationType.valueOf(organizationType.trim().toUpperCase(Locale.ROOT)));
-        }catch (Exception e){
-            System.out.println("Что-то пошло не так: " + e.getMessage());
-            buildOrganizationType(scannable);
-        }
+        organization.setType(OrganizationType.valueOf(organizationType.trim().toUpperCase(Locale.ROOT)));
     }
     private void buildPostalAddress(Scannable scannable) throws WrongInputException {
         Address address = new AddressConsoleBuilder().build(scannable);

@@ -10,11 +10,12 @@ public class Location {
     private Double y; //Поле не может быть null
     private Integer z; //Поле не может быть null
 
+    public Location() {}
 
     /**
      * @param x икс
-     * @param y игрик
-     * @param z зэт
+     * @param y v
+     * @param z за (своих 🇷🇺)
      * @throws WrongInputException эксепшн
      */
     public Location(double x, Double y, Integer z) throws WrongInputException {
@@ -71,5 +72,10 @@ public class Location {
             throw new WrongInputException("Поле не должно быть null");
 
         this.z = z;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + x + "; " + y + "; " + z + ")";
     }
 }

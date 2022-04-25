@@ -43,7 +43,10 @@ public class AddressConsoleBuilder {
 
 
     private void buildTown(Scannable scannable){
-        Location location = new LocationConsoleBuilder().build(scannable);
+        Location location = null;
+        try {
+            location = new LocationConsoleBuilder().build(scannable);
+        } catch (Exception ignored){}
         address.setTown(location);
     }
 }

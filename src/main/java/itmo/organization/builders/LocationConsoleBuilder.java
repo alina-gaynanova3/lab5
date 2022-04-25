@@ -3,6 +3,7 @@ package itmo.organization.builders;
 import io.Scannable;
 import itmo.organization.Address;
 import itmo.organization.Location;
+import itmo.utils.WrongInputException;
 
 public class LocationConsoleBuilder {
     private Location location;
@@ -11,7 +12,7 @@ public class LocationConsoleBuilder {
         location = new Location();
     }
 
-    public Location build(Scannable scannable) {
+    public Location build(Scannable scannable) throws WrongInputException {
         this.buildX(scannable);
         this.buildY(scannable);
         this.buildZ(scannable);
@@ -19,9 +20,11 @@ public class LocationConsoleBuilder {
     }
 
 
-    private void buildX(Scannable scannable) {
+    private void buildX(Scannable scannable) throws WrongInputException {
         System.out.println("Введите координату х: ");
         String x = scannable.readLine();
+        if (x.equals(""))
+            throw new WrongInputException("field is null");
         try {
             location.setX(Double.parseDouble(x));
         } catch (Exception e) {
@@ -34,7 +37,7 @@ public class LocationConsoleBuilder {
         System.out.println("Введите координату y: ");
         String y = scannable.readLine();
         try {
-            location.setX(Double.parseDouble(y));
+            location.setY(Double.valueOf(y));
         } catch (Exception e) {
             System.out.println("Что-то пошло не так: " + e.getMessage());
             buildY(scannable);
@@ -45,7 +48,7 @@ public class LocationConsoleBuilder {
         System.out.println("Введите координату z: ");
         String z = scannable.readLine();
         try {
-            location.setX(Double.parseDouble(z));
+            location.setZ(Integer.valueOf(z));
         } catch (Exception e) {
             System.out.println("Что-то пошло не так: " + e.getMessage());
             buildZ(scannable);

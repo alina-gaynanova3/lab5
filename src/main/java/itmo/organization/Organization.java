@@ -198,4 +198,17 @@ public class Organization implements Comparable<Organization> {
             return 1;
         return this.name.compareTo(o.name);
     }
+
+    @Override
+    public String toString() {
+        return "Organization: " +
+                "\nid: " + id +
+                "\nname: " + name +
+                "\ncoordinates: " + coordinates +
+                "\ncreationDate: " + creationDate +
+                "\nannualTurnover: " + annualTurnover +
+                "\nfullName: " + fullName +
+                "\ntype: " + type +
+                "\npostalAddress: " + postalAddress;
+    }
 }

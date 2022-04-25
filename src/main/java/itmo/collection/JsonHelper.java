@@ -4,9 +4,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import itmo.organization.Organization;
+import itmo.utils.WrongInputException;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
@@ -40,14 +44,18 @@ public class JsonHelper {
         this.creationTime = creationTime;
     }
 
-    public void toJson(String filename) throws IOException {
+    public void toJson(String filename) throws Exception {
+
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT); //делаем красиво все в одну строчку
         objectMapper.registerModule(new JavaTimeModule()); //чтобы время было в файле
         objectMapper.writeValue(new File(filename), this);
     }
 
-    public static MyHashSet<Organization> toHashSet(String filename) throws IOException {
+    public static MyHashSet<Organization> toHashSet(String filename) throws Exception {
+        if (!Files.isReadable(Paths.get(filename))){
+            throw new WrongInputException("не возможно прочитать файл");
+        }
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT); //делаем красиво
         objectMapper.registerModule(new JavaTimeModule()); //чтобы время было

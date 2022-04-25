@@ -3,6 +3,7 @@ package itmo.commands;
 import itmo.collection.MyHashSet;
 import itmo.organization.Organization;
 import itmo.organization.comparators.OrganizationNameComparator;
+import itmo.utils.FormatCommandOutput;
 
 import java.util.Optional;
 
@@ -27,6 +28,7 @@ public class Add_if_max implements UserCommand {
      */
     @Override
     public void execute() {
+        System.out.println(new FormatCommandOutput(50, this).toString());
         Optional<Organization> max = myHashSet.stream().max(new OrganizationNameComparator());
         if (!max.isPresent()){
             myHashSet.add(organization);

@@ -2,6 +2,7 @@ package itmo.commands;
 
 import itmo.collection.MyHashSet;
 import itmo.organization.Organization;
+import itmo.utils.FormatCommandOutput;
 import itmo.utils.WrongInputException;
 
 public class Update_id implements UserCommand {
@@ -17,6 +18,7 @@ public class Update_id implements UserCommand {
 
     @Override
     public void execute() throws WrongInputException {
+        System.out.println(new FormatCommandOutput(50, this).toString());
         if (myHashSet.removeIf(organization1 -> organization1.getId() == id)){
             organization.setId(id);
             myHashSet.add(organization);

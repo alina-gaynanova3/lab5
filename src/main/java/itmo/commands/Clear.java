@@ -1,6 +1,7 @@
 package itmo.commands;
 
 import itmo.collection.MyHashSet;
+import itmo.utils.FormatCommandOutput;
 
 /**
  * класс для очистки
@@ -21,6 +22,7 @@ public class Clear implements UserCommand {
      */
     @Override
     public void execute() {
+        System.out.println(new FormatCommandOutput(50, this).toString());
         myHashSet.clear();
         System.out.println("Коллекция очищена!");
     }

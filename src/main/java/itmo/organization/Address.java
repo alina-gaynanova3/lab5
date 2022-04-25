@@ -10,6 +10,7 @@ public class Address {
     private String zipCode; //Длина строки не должна быть больше 14, Поле может быть null
     private Location town; //Поле может быть null
 
+    public Address(){}
 
     /**
      * @param street улица
@@ -71,5 +72,12 @@ public class Address {
      */
     public void setTown(Location town) {
         this.town = town;
+    }
+
+    @Override
+    public String toString() {
+        return "street: " + street +
+                "\nzipCode: " + zipCode +
+                "\ntown: " + town;
     }
 }
