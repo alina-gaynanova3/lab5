@@ -5,6 +5,9 @@ import itmo.utils.FormatCommandOutput;
 
 public class Help implements UserCommand {
 
+    /**
+     * выполнение
+     */
     @Override
     public void execute() {
         System.out.println(new FormatCommandOutput(50, this));
