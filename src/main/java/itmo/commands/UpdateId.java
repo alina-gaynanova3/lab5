@@ -8,7 +8,7 @@ import itmo.utils.WrongInputException;
 /**
  * класс, описывающий Update_id
  */
-public class Update_id implements UserCommand {
+public class UpdateId implements UserCommand {
     private final MyHashSet<Organization> myHashSet;
     private final Organization organization;
     private final int id;
@@ -18,7 +18,7 @@ public class Update_id implements UserCommand {
      * @param organization организация
      * @param id           айди
      */
-    public Update_id(MyHashSet<Organization> myHashSet, Organization organization, int id) {
+    public UpdateId(MyHashSet<Organization> myHashSet, Organization organization, int id) {
         this.myHashSet = myHashSet;
         this.organization = organization;
         this.id = id;

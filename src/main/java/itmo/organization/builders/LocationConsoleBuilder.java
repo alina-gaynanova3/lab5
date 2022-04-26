@@ -35,7 +35,7 @@ public class LocationConsoleBuilder {
      * @throws WrongInputException Exception
      */
     private void buildX(Scannable scannable) throws WrongInputException {
-        System.out.println("Введите координату х: ");
+        System.out.println("Введите координату х (double): ");
         String x = scannable.readLine();
         if (x.equals(""))
             throw new WrongInputException("field is null");
@@ -51,7 +51,7 @@ public class LocationConsoleBuilder {
      * @param scannable сканируемый
      */
     private void buildY(Scannable scannable) {
-        System.out.println("Введите координату y: ");
+        System.out.println("Введите координату y (double): ");
         String y = scannable.readLine();
         try {
             location.setY(Double.valueOf(y));
@@ -65,7 +65,7 @@ public class LocationConsoleBuilder {
      * @param scannable сканируемый
      */
     private void buildZ(Scannable scannable) {
-        System.out.println("Введите координату z: ");
+        System.out.println("Введите координату z (za своих (integer)): ");
         String z = scannable.readLine();
         try {
             location.setZ(Integer.valueOf(z));

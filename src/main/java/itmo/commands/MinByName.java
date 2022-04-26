@@ -10,14 +10,14 @@ import java.util.Optional;
 /**
  * класс, выполняющий команду Min_by_name
  */
-public class Min_by_name implements UserCommand {
+public class MinByName implements UserCommand {
 
     private final MyHashSet<Organization> myHashSet;
 
     /**
      * @param myHashSet коллекция
      */
-    public Min_by_name(MyHashSet<Organization> myHashSet) {
+    public MinByName(MyHashSet<Organization> myHashSet) {
         this.myHashSet = myHashSet;
     }
 

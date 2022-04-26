@@ -30,7 +30,7 @@ public class CoordinatesConsoleBuilder {
      * @param scannable сканируемый
      */
     private void buildX(Scannable scannable) {
-        System.out.println("Введите координату х: ");
+        System.out.println("Введите координату х (double): ");
         String x = scannable.readLine();
         try {
             coordinates.setX(Double.parseDouble(x));
@@ -44,7 +44,7 @@ public class CoordinatesConsoleBuilder {
      * @param scannable сканируемый
      */
     private void buildY(Scannable scannable) {
-        System.out.println("Введите координату y: ");
+        System.out.println("Введите координату y (float): ");
         String y = scannable.readLine();
         try {
             coordinates.setY(Float.parseFloat(y));

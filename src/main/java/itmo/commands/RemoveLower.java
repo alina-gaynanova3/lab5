@@ -8,7 +8,7 @@ import itmo.utils.FormatCommandOutput;
 /**
  * класс, описывающий Remove_lower
  */
-public class Remove_lower implements UserCommand {
+public class RemoveLower implements UserCommand {
 
     private final MyHashSet<Organization> myHashSet;
     private final Organization organization;
@@ -17,7 +17,7 @@ public class Remove_lower implements UserCommand {
      * @param myHashSet    коллекция
      * @param organization организация
      */
-    public Remove_lower(MyHashSet<Organization> myHashSet, Organization organization) {
+    public RemoveLower(MyHashSet<Organization> myHashSet, Organization organization) {
         this.myHashSet = myHashSet;
         this.organization = organization;
     }

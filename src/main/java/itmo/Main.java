@@ -5,7 +5,9 @@ import io.Scannable;
 import itmo.collection.JsonHelper;
 import itmo.collection.MyHashSet;
 import itmo.commands.CommandReader;
+import itmo.commands.UserCommand;
 import itmo.organization.Organization;
+import itmo.utils.CommandHistory;
 import itmo.utils.ExecuteFilesHistory;
 
 public class Main {
@@ -27,7 +29,9 @@ public class Main {
         while (true) {
             System.out.println("Введите команду:");
             try {
-                commandReader.getCommand(scannable, true).execute();
+                UserCommand command = commandReader.getCommand(scannable, true);
+                CommandHistory.getHistory().add(command);
+                command.execute();
             } catch (Exception e) {
                 System.out.println("Ошибка: " + e.getMessage());
             }

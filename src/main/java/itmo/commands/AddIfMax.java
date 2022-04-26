@@ -10,7 +10,7 @@ import java.util.Optional;
 /**
  * класс для добавления максимального
  */
-public class Add_if_max implements UserCommand {
+public class AddIfMax implements UserCommand {
     private final MyHashSet<Organization> myHashSet;
     private final Organization organization;
 
@@ -18,7 +18,7 @@ public class Add_if_max implements UserCommand {
      * @param myHashSet    коллекция
      * @param organization организауия
      */
-    public Add_if_max(MyHashSet<Organization> myHashSet, Organization organization) {
+    public AddIfMax(MyHashSet<Organization> myHashSet, Organization organization) {
         this.myHashSet = myHashSet;
         this.organization = organization;
     }

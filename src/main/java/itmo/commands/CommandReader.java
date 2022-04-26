@@ -75,20 +75,20 @@ public class CommandReader {
             case "print_descending":
                 return new PrintDescending(myHashSet);
             case "min_by_name":
-                return new Min_by_name(myHashSet);
+                return new MinByName(myHashSet);
             case "history":
                 return new History();
             case "remove_by_id": {
                 if (words.size() < 2)
                     throw new WrongInputException("Нет параметра");
 
-                return new Remove_by_id(myHashSet, Integer.parseInt(words.get(1)));
+                return new RemoveById(myHashSet, Integer.parseInt(words.get(1)));
             }
             case "execute_script": {
                 if (words.size() < 2)
                     throw new WrongInputException("Нет параметра");
 
-                return new Execute_script(myHashSet, executeFilesHistory, words.get(1));
+                return new ExecuteScript(myHashSet, executeFilesHistory, words.get(1));
             }
             case "add": {
                 Organization organization;
@@ -104,7 +104,7 @@ public class CommandReader {
                     organization = new OrganizationConsoleBuilder().build(scannable);
                 else
                     organization = new OrganizationBuilder().build(scannable);
-                return new Add_if_max(myHashSet, organization);
+                return new AddIfMax(myHashSet, organization);
             }
             case "remove_lower": {
                 Organization organization;
@@ -112,7 +112,7 @@ public class CommandReader {
                     organization = new OrganizationConsoleBuilder().build(scannable);
                 else
                     organization = new OrganizationBuilder().build(scannable);
-                return new Remove_lower(myHashSet, organization);
+                return new RemoveLower(myHashSet, organization);
             }
             case "update": {
                 if (words.size() < 2)
@@ -122,7 +122,7 @@ public class CommandReader {
                     organization = new OrganizationConsoleBuilder().build(scannable);
                 else
                     organization = new OrganizationBuilder().build(scannable);
-                return new Update_id(myHashSet, organization, Integer.parseInt(words.get(1)));
+                return new UpdateId(myHashSet, organization, Integer.parseInt(words.get(1)));
             }
             case "remove_all_by_postal_address": {
                 Address address;
@@ -130,7 +130,7 @@ public class CommandReader {
                     address = new AddressConsoleBuilder().build(scannable);
                 else
                     address = new AddressBuilder().build(scannable);
-                return new Remove_all_by_postal_address(myHashSet, address);
+                return new RemoveAllByPostalAddress(myHashSet, address);
             }
 
             default:

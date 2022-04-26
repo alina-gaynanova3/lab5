@@ -1,23 +1,24 @@
 package itmo.commands;
 
 import itmo.collection.MyHashSet;
+import itmo.organization.Address;
 import itmo.organization.Organization;
 import itmo.utils.FormatCommandOutput;
 
 /**
- * класс, описывающий Remove_by_id
+ * класс, описывающий Remove_all_by_postal_address
  */
-public class Remove_by_id implements UserCommand {
+public class RemoveAllByPostalAddress implements UserCommand {
     private final MyHashSet<Organization> myHashSet;
-    private final int id;
+    private final Address address;
 
     /**
      * @param myHashSet коллекция
-     * @param id        айди
+     * @param address   адрес
      */
-    public Remove_by_id(MyHashSet<Organization> myHashSet, int id) {
+    public RemoveAllByPostalAddress(MyHashSet<Organization> myHashSet, Address address) {
         this.myHashSet = myHashSet;
-        this.id = id;
+        this.address = address;
     }
 
     /**
@@ -26,6 +27,6 @@ public class Remove_by_id implements UserCommand {
     @Override
     public void execute() {
         System.out.println(new FormatCommandOutput(50, this));
-        myHashSet.removeIf(organization -> organization.getId() == id);
+        myHashSet.removeIf(organization -> organization.getPostalAddress().equals(address));
     }
 }
