@@ -59,8 +59,11 @@ public class JsonHelper {
     }
 
     public static MyHashSet<Organization> toHashSet(String filename) throws Exception {
+        if (!Files.exists(Paths.get(filename))){
+            throw new WrongInputException("файла нет!");
+        }
         if (!Files.isReadable(Paths.get(filename))) {
-            throw new WrongInputException("не возможно прочитать файл");
+            throw new WrongInputException("невозможно прочитать файл");
         }
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT); //делаем красиво

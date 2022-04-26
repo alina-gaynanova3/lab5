@@ -65,7 +65,7 @@ public class LocationConsoleBuilder {
      * @param scannable сканируемый
      */
     private void buildZ(Scannable scannable) {
-        System.out.println("Введите координату z (za своих (integer)): ");
+        System.out.println("Введите координату z (integer): ");
         String z = scannable.readLine();
         try {
             location.setZ(Integer.valueOf(z));

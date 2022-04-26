@@ -15,12 +15,16 @@ public class Main {
 
     public static void main(String[] args) {
         FILENAME = System.getenv("filename");
+        if (FILENAME == null){
+            System.out.println("Нет переменной среды!");
+            System.exit(1);
+        }
 
         MyHashSet<Organization> myHashSet = new MyHashSet<>();
         try {
             myHashSet = JsonHelper.toHashSet(FILENAME);
         } catch (Exception e) {
-            System.out.println("Не удается взять коллекцию из файла");
+            System.out.println("Не удается взять коллекцию из файла: " + e.getMessage());
         }
 
         ExecuteFilesHistory executeFilesHistory = new ExecuteFilesHistory();

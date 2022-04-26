@@ -4,7 +4,8 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 
 /**
- * @param <E> коллекция
+ * класс сделали, чтобы добавить функционал (creationDate)
+ * @param <E> тип, который хранится в коллекции
  */
 public class MyHashSet<E> extends HashSet<E> {
     private LocalDateTime creationDate;

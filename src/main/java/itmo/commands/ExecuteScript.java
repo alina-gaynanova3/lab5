@@ -40,7 +40,7 @@ public class ExecuteScript implements UserCommand {
         if (!file.canRead())
             throw new WrongInputException("не возможно прочитать файл");
 
-        if (executeFilesHistory.contains(file))
+        if (executeFilesHistory.contains(file)) //поиск цикла в графе
             throw new WrongInputException("рекурсия_))))))))))");
         executeFilesHistory.add(file);
         CommandReader commandReader = new CommandReader(myHashSet, executeFilesHistory);
