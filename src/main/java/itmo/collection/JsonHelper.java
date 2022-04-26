@@ -12,6 +12,9 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
+/**
+ * класс для json
+ */
 public class JsonHelper {
     private Organization[] organizations;
     private LocalDateTime creationTime;
@@ -19,6 +22,9 @@ public class JsonHelper {
     public JsonHelper() {
     }
 
+    /**
+     * @param myHashSet конструктор
+     */
     public JsonHelper(MyHashSet<Organization> myHashSet) {
         organizations = new Organization[myHashSet.size()];
         int index = 0;

@@ -3,6 +3,9 @@ package itmo.commands;
 
 import itmo.utils.FormatCommandOutput;
 
+/**
+ * класс, описывающий команду помощь
+ */
 public class Help implements UserCommand {
 
     /**

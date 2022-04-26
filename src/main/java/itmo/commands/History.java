@@ -3,6 +3,9 @@ package itmo.commands;
 import itmo.utils.CommandHistory;
 import itmo.utils.FormatCommandOutput;
 
+/**
+ * класс, описывающий историю
+ */
 public class History implements UserCommand {
     /**
      * выполнение

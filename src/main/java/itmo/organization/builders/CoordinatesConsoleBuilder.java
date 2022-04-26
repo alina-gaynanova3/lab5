@@ -3,19 +3,32 @@ package itmo.organization.builders;
 import io.Scannable;
 import itmo.organization.Coordinates;
 
+/**
+ * класс, описывающий CoordinatesConsoleBuilder
+ */
 public class CoordinatesConsoleBuilder {
     private final Coordinates coordinates;
 
+    /**
+     * CoordinatesConsoleBuilder
+     */
     public CoordinatesConsoleBuilder() {
         coordinates = new Coordinates();
     }
 
+    /**
+     * @param scannable сканируемый
+     * @return return
+     */
     public Coordinates build(Scannable scannable) {
         buildX(scannable);
         buildY(scannable);
         return coordinates;
     }
 
+    /**
+     * @param scannable сканируемый
+     */
     private void buildX(Scannable scannable) {
         System.out.println("Введите координату х: ");
         String x = scannable.readLine();
@@ -27,6 +40,9 @@ public class CoordinatesConsoleBuilder {
         }
     }
 
+    /**
+     * @param scannable сканируемый
+     */
     private void buildY(Scannable scannable) {
         System.out.println("Введите координату y: ");
         String y = scannable.readLine();

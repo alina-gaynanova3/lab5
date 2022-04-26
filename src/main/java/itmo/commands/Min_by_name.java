@@ -7,14 +7,23 @@ import itmo.utils.FormatCommandOutput;
 
 import java.util.Optional;
 
+/**
+ * класс, выполняющий команду Min_by_name
+ */
 public class Min_by_name implements UserCommand {
 
     private final MyHashSet<Organization> myHashSet;
 
+    /**
+     * @param myHashSet коллекция
+     */
     public Min_by_name(MyHashSet<Organization> myHashSet) {
         this.myHashSet = myHashSet;
     }
 
+    /**
+     * выполнение
+     */
     @Override
     public void execute() {
         System.out.println(new FormatCommandOutput(50, this));

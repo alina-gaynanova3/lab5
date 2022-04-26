@@ -12,13 +12,24 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.Random;
 
+/**
+ * класс, описывающий OrganizationConsoleBuilder
+ */
 public class OrganizationConsoleBuilder {
     private final Organization organization;
 
+    /**
+     * OrganizationConsoleBuilder
+     */
     public OrganizationConsoleBuilder() {
         organization = new Organization();
     }
 
+    /**
+     * @param scannable сканируемый
+     * @return return
+     * @throws WrongInputException Exception
+     */
     public Organization build(Scannable scannable) throws WrongInputException {
         this.buildId();
         this.buildCreationDate();
@@ -31,6 +42,9 @@ public class OrganizationConsoleBuilder {
         return organization;
     }
 
+    /**
+     * @throws WrongInputException Exception
+     */
     private void buildId() throws WrongInputException {
         int id = -1;
         Random random = new Random();
@@ -39,10 +53,16 @@ public class OrganizationConsoleBuilder {
         organization.setId(id);
     }
 
+    /**
+     * @throws WrongInputException Exception
+     */
     private void buildCreationDate() throws WrongInputException {
         organization.setCreationDate(ZonedDateTime.now());
     }
 
+    /**
+     * @param scannable сканируемый
+     */
     private void buildName(Scannable scannable) {
         System.out.println("Введите имя: ");
         String name = scannable.readLine();
@@ -54,6 +74,9 @@ public class OrganizationConsoleBuilder {
         }
     }
 
+    /**
+     * @param scannable сканируемый
+     */
     private void buildFullName(Scannable scannable) {
         System.out.println("Введите Full имя: ");
         String fullname = scannable.readLine();
@@ -65,11 +88,18 @@ public class OrganizationConsoleBuilder {
         }
     }
 
+    /**
+     * @param scannable сканируемый
+     * @throws WrongInputException Exception
+     */
     private void buildCoordinates(Scannable scannable) throws WrongInputException {
         Coordinates coordinates = new CoordinatesConsoleBuilder().build(scannable);
         organization.setCoordinates(coordinates);
     }
 
+    /**
+     * @param scannable сканируемый
+     */
     private void buildAnnualTurnover(Scannable scannable) {
         System.out.println("Введите annual turnover: ");
         String annualTurnover = scannable.readLine();
@@ -81,6 +111,9 @@ public class OrganizationConsoleBuilder {
         }
     }
 
+    /**
+     * @param scannable сканируемый
+     */
     private void buildOrganizationType(Scannable scannable) {
         System.out.println("Введите OrganizationType: " + Arrays.toString(OrganizationType.values()));
         String organizationType = scannable.readLine();
@@ -96,6 +129,10 @@ public class OrganizationConsoleBuilder {
         }
     }
 
+    /**
+     * @param scannable сканируемый
+     * @throws WrongInputException Exception
+     */
     private void buildPostalAddress(Scannable scannable) throws WrongInputException {
         Address address = new AddressConsoleBuilder().build(scannable);
         organization.setPostalAddress(address);

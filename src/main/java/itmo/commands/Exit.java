@@ -3,6 +3,9 @@ package itmo.commands;
 
 import itmo.utils.FormatCommandOutput;
 
+/**
+ * класс, описывающий завершение
+ */
 public class Exit implements UserCommand {
 
     /**

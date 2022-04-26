@@ -10,17 +10,28 @@ import itmo.utils.WrongInputException;
 
 import java.io.File;
 
+/**
+ * класс, описывающий Execute_script
+ */
 public class Execute_script implements UserCommand {
     private final MyHashSet<Organization> myHashSet;
     private final ExecuteFilesHistory executeFilesHistory;
     private final String filename;
 
+    /**
+     * @param myHashSet           коллекция
+     * @param executeFilesHistory выполнение истории
+     * @param filename            имя файла
+     */
     public Execute_script(MyHashSet<Organization> myHashSet, ExecuteFilesHistory executeFilesHistory, String filename) {
         this.myHashSet = myHashSet;
         this.executeFilesHistory = executeFilesHistory;
         this.filename = filename;
     }
 
+    /**
+     * @throws Exception Exception
+     */
     @Override
     public void execute() throws Exception {
         System.out.println(new FormatCommandOutput(50, this));

@@ -2,16 +2,26 @@ package itmo.utils;
 
 import itmo.commands.UserCommand;
 
+/**
+ * класс, описывающий FormatCommandOutput
+ */
 public class FormatCommandOutput {
 
     private final int allChars;
     private final UserCommand command;
 
+    /**
+     * @param allChars allChars
+     * @param command  комдна
+     */
     public FormatCommandOutput(int allChars, UserCommand command) {
         this.allChars = allChars;
         this.command = command;
     }
 
+    /**
+     * @return return
+     */
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
